@@ -1,8 +1,14 @@
-//첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제
-//하지만, 오른쪽을 기준으로 정렬한 별(예제 참고)을 출력하시오.
-//첫째 줄에 N(1 ≤ N ≤ 100)이 주어진다.
-//첫째 줄부터 N번째 줄까지 차례대로 별을 출력한다.
-let T = Int(readLine()!)!
-for i in 1...T {
-    print(String(repeating: " ", count: T-i)+String(repeating: "*", count: i))
+//두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+//입력은 여러 개의 테스트 케이스로 이루어져 있다.
+//각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)
+//입력의 마지막에는 0 두 개가 들어온다.
+//각 테스트 케이스마다 A+B를 출력한다.
+var bool = true
+while bool {
+    let n = readLine()!.split(separator: " ")
+    if n == ["0","0"] {
+        bool = false
+    } else {
+        print("\(Int(n[0])!+Int(n[1])!)")
+    }
 }
