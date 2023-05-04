@@ -3,12 +3,9 @@
 //각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)
 //입력의 마지막에는 0 두 개가 들어온다.
 //각 테스트 케이스마다 A+B를 출력한다.
-var bool = true
-while bool {
-    let n = readLine()!.split(separator: " ")
-    if n == ["0","0"] {
-        bool = false
-    } else {
-        print("\(Int(n[0])!+Int(n[1])!)")
-    }
+while let input = readLine() {
+    let n = input.split(separator: " ")
+    print("\(Int(n[0])!+Int(n[1])!)")
 }
+
+
