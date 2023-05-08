@@ -1,5 +1,12 @@
-var result = Set<Int>()
-for _ in 0..<10 {
-    result.insert(Int(readLine()!)!%42)
+
+let n = Int(readLine()!)!
+//var arr = Array<Double>()
+var m = readLine()!.split(separator: " ").map { Double($0)! }
+let max = m.max()!
+m = m.map { $0 / max }
+var mPlus:Double = 0.0
+
+for i in 0..<n {
+    mPlus += m[i]
 }
-print(result.count)
+print(mPlus / Double(n) * 100)
