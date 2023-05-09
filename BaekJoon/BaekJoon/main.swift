@@ -1,2 +1,3 @@
-
-print(readLine()!.split(separator: " ").count)
+while let line = readLine() {
+    print(line)
+}
