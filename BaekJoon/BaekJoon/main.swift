@@ -1,14 +1,9 @@
-
-import Foundation
-let s = Array(readLine()!)
-let alphabet = Array("abcdefghijklmnopqrstuvwxyz")
-var result = Array(repeating: -1, count: 26)
-
-for i in 0..<alphabet.count {
-    for j in 0..<s.count {
-        if s[j] == alphabet[i] && result[i] == -1 {
-            result[i] = j
-        }
-    }
+let t = Int(readLine()!)!
+for _ in 0..<t {
+    let input = readLine()!.split(separator: " ")
+    let R = Int(input[0])!
+    let S = Array(input[1])
+    var P = ""
+    S.map { P += String(repeating: String($0), count: R) }
+    print(P)
 }
-result[0...].forEach { print($0, terminator: " ")}
