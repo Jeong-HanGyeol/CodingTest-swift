@@ -1,7 +1,8 @@
-let find = readLine()!.split(separator: " ").map {Int($0)!}
-let val = [1, 1, 2, 2, 2, 8]
-var result = [0, 0, 0, 0, 0, 0]
-for i in 0..<6 {
-    result[i] = val[i] - find[i]
+let n = Int(readLine()!)!
+for i in 0..<2*n-1 {
+    if i < (2*n)/2 {
+        print("\(String(repeating: " ", count: n-(i+1)))\(String(repeating: "*", count: (i+1)+(i)))")
+    } else {
+        print("\(String(repeating: " ", count: i-(((2*n)/2)-1)))\(String(repeating: "*", count: (2*n-1)-((i-(((2*n)/2)-1))*2) ))")
+    }
 }
-print(result.map { String($0) }.joined(separator: " "))
