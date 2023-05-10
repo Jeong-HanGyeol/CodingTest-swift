@@ -1,8 +1,24 @@
-let n = Int(readLine()!)!
-for i in 0..<2*n-1 {
-    if i < (2*n)/2 {
-        print("\(String(repeating: " ", count: n-(i+1)))\(String(repeating: "*", count: (i+1)+(i)))")
-    } else {
-        print("\(String(repeating: " ", count: i-(((2*n)/2)-1)))\(String(repeating: "*", count: (2*n-1)-((i-(((2*n)/2)-1))*2) ))")
+let w = Array(readLine()!.map { $0 })
+var r = 0
+if w.count % 2 == 0 {
+    for i in 0..<w.count/2 {
+        if w[i] == w[w.count - 1 - i] {
+            r += 1
+        } else {
+            r += 0
+        }
     }
+} else {
+    for i in 0..<(w.count - 1)/2 {
+        if w[i] == w[w.count - 1 - i] {
+            r += 1
+        } else {
+            r += 0
+        }
+    }
+}
+if r == w.count/2 {
+    print(1)
+} else {
+    print(0)
 }
