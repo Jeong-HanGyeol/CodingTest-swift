@@ -1,17 +1,18 @@
 import Foundation
-let word = Array(readLine()!.uppercased())
-var dict: [String:Int] = [:]
-var result: [String] = []
-for i in word {
-    if dict[String(i)] == nil {
-        dict[String(i)] = 1
-    } else {
-        dict[String(i)]! += 1
+let c = Int(readLine()!)!
+for _ in 0..<c {
+    var arr = readLine()!.split(separator: " ").map {Double($0)!}
+    let n = arr[0]
+    arr.remove(at: 0)
+    var t = 0.0
+    var r = 0.0
+    for i in arr {
+        t += i
     }
-}
-for key in dict.keys {
-    if dict[key] == dict.values.max() {
-        result.append(key)
+    for i in arr {
+        if t / n < i {
+            r += 1
+        }
     }
+    print("\(String(format: "%.3f", round(r/n*100*1000)/1000))%")
 }
-print( result.count > 1 ? "?" : "\(result[0])" )
