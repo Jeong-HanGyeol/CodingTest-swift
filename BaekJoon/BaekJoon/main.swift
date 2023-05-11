@@ -1,9 +1,20 @@
-import Foundation
-var input = readLine()!
-let croatia: [String] = ["c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="]
+let n = Int(readLine()!)!
+var r = 0
+for _ in 0..<n {
+    let word = Array(readLine()!)
+    var ch = [Character]()
+    for i in 0..<word.count {
+        if ch.contains(word[i]) {
+            if word[i] == word[i-1] {
 
-for ch in croatia {
-    input = input.replacingOccurrences(of: ch, with: "b")
+            } else {
+                r += 1
+                break
+            }
+        } else {
+            ch.append(word[i])
+        }
+    }
 }
-var count: Int = input.count
-print(count)
+print(n-r)
+
