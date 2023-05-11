@@ -1,24 +1,12 @@
-let w = Array(readLine()!.map { $0 })
-var r = 0
-if w.count % 2 == 0 {
-    for i in 0..<w.count/2 {
-        if w[i] == w[w.count - 1 - i] {
-            r += 1
-        } else {
-            r += 0
-        }
-    }
-} else {
-    for i in 0..<(w.count - 1)/2 {
-        if w[i] == w[w.count - 1 - i] {
-            r += 1
-        } else {
-            r += 0
-        }
-    }
+
+let input = readLine()!.split(separator: " ")
+let n = Int(input[0])!
+let m = Int(input[1])!
+var r = Array<Int>(0...n)
+for _ in 0..<m {
+    let arr = readLine()!.split(separator: " ")
+    let i = Int(arr[0])!, j = Int(arr[1])!, k = Int(arr[2])!
+    var ca = r[k...j] + r[i..<k]
+    r[i...j] = ca
 }
-if r == w.count/2 {
-    print(1)
-} else {
-    print(0)
-}
+r[1...].forEach { print($0, terminator: " ") }
