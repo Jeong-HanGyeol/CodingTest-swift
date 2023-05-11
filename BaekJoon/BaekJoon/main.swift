@@ -1,12 +1,17 @@
-
-let input = readLine()!.split(separator: " ")
-let n = Int(input[0])!
-let m = Int(input[1])!
-var r = Array<Int>(0...n)
-for _ in 0..<m {
-    let arr = readLine()!.split(separator: " ")
-    let i = Int(arr[0])!, j = Int(arr[1])!, k = Int(arr[2])!
-    var ca = r[k...j] + r[i..<k]
-    r[i...j] = ca
+import Foundation
+let word = Array(readLine()!.uppercased())
+var dict: [String:Int] = [:]
+var result: [String] = []
+for i in word {
+    if dict[String(i)] == nil {
+        dict[String(i)] = 1
+    } else {
+        dict[String(i)]! += 1
+    }
 }
-r[1...].forEach { print($0, terminator: " ") }
+for key in dict.keys {
+    if dict[key] == dict.values.max() {
+        result.append(key)
+    }
+}
+print( result.count > 1 ? "?" : "\(result[0])" )
