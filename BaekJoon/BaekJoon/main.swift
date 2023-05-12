@@ -1,20 +1,17 @@
-let input = readLine()!.split(separator: " ")
-let n = Int(input[0])!, m = Int(input[1])!
-var matrixA: [[Int]] = []
-var matrixB: [[Int]] = []
-var answer = [[Int]](repeating: [Int](repeating: 0, count: m), count: n)
-for _ in 0..<n {
-    matrixA.append(readLine()!.split(separator: " ").map { Int($0)! })
+var matrix: [[Int]] = []
+var answer = [[Int]](repeating: [Int](repeating: 0, count: 9), count: 9)
+for _ in 0..<9 {
+    matrix.append(readLine()!.split(separator: " ").map { Int($0)! })
 }
-for _ in 0..<n {
-    matrixB.append(readLine()!.split(separator: " ").map { Int($0)! })
+var max = Array<Int>()
+for i in 0..<9 {
+    max.append(matrix[i].max()!)
 }
-for y in 0..<n {
-    for x in 0..<m {
-        answer[y][x] = matrixA[y][x] + matrixB[y][x]
+for x in 0..<9 {
+    for y in 0..<9 {
+        if max.max() == matrix[x][y] {
+            print(max.max()!)
+            print("\(x+1) \(y+1)")
+        }
     }
-}
-for y in 0..<n {
-    answer[y].forEach { print($0, terminator: " ") }
-    print()
 }
