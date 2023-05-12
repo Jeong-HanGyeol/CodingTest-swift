@@ -1,13 +1,12 @@
-var toy = [[String]](repeating: [String](repeating: "", count: 15), count: 5)
-var total = Array<Int>()
-var result = ""
-for i in 0..<5 {
-    let word = readLine()!.map { String($0) }
-    let lastIndex = word.count - 1
-    toy[i].replaceSubrange(0..<lastIndex, with: word)
-}
-for i in 0..<15 {
-    for j in 0..<5 {
-        print(toy[j][i], terminator: "")
+var paper = [[Bool]](repeating: [Bool](repeating: false, count: 101), count: 101)
+let n = Int(readLine()!)!
+for _ in 0..<n {
+    let input = readLine()!.split(separator: " ").map { Int($0)! }
+    let x = input[0], y = input[1]
+    for x in x..<x+10 {
+        for y in y..<y+10 {
+            paper[x][y] = true
+        }
     }
 }
+print(paper.flatMap { $0 }.filter { $0 }.count)
