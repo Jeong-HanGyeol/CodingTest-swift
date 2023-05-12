@@ -1,17 +1,13 @@
-var matrix: [[Int]] = []
-var answer = [[Int]](repeating: [Int](repeating: 0, count: 9), count: 9)
-for _ in 0..<9 {
-    matrix.append(readLine()!.split(separator: " ").map { Int($0)! })
+var toy = [[String]](repeating: [String](repeating: "", count: 15), count: 5)
+var total = Array<Int>()
+var result = ""
+for i in 0..<5 {
+    let word = readLine()!.map { String($0) }
+    let lastIndex = word.count - 1
+    toy[i].replaceSubrange(0..<lastIndex, with: word)
 }
-var max = Array<Int>()
-for i in 0..<9 {
-    max.append(matrix[i].max()!)
-}
-for x in 0..<9 {
-    for y in 0..<9 {
-        if max.max() == matrix[x][y] {
-            print(max.max()!)
-            print("\(x+1) \(y+1)")
-        }
+for i in 0..<15 {
+    for j in 0..<5 {
+        print(toy[j][i], terminator: "")
     }
 }
