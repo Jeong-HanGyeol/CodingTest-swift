@@ -1,12 +1,25 @@
-var paper = [[Bool]](repeating: [Bool](repeating: false, count: 101), count: 101)
-let n = Int(readLine()!)!
-for _ in 0..<n {
-    let input = readLine()!.split(separator: " ").map { Int($0)! }
-    let x = input[0], y = input[1]
-    for x in x..<x+10 {
-        for y in y..<y+10 {
-            paper[x][y] = true
-        }
-    }
+import Foundation
+var inputs = readLine()!.split(separator: " ").map{ String($0)}
+var number = Array(inputs[0]).map{ String($0) }
+var rad = Int(inputs[1])!
+var result = 0
+var dict = [String: Int]()
+for i in 10...35 {
+    var num = 55
+    dict[String(UnicodeScalar(num+i)!)] = i
 }
-print(paper.flatMap { $0 }.filter { $0 }.count)
+for i in 0..<number.count {
+    var n = number.count - i - 1
+    var num1 = Int()
+    if Int(number[i]) == nil {
+        num1 = dict[number[i]]!
+    } else {
+        num1 = Int(number[i])!
+    }
+    var num2 = 1
+    for j in 0..<n {
+        num2 = num2 * rad
+    }
+    result = result + ( num2 * num1)
+}
+print(result)
