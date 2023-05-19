@@ -1,11 +1,17 @@
-import Foundation
-var n = Int(readLine()!)!
-
-var x = 2
-
-while n > 0 {
-    x += Int(pow(2, Double(n-1)))
-    n -= 1
+let n = Int(readLine()!)!
+var sum = 1
+var count = 1
+for i in 1...n {
+    if n == 1 {
+        print(count)
+        break
+    }
+    if n <= sum {
+        print(count)
+        break
+    }
+    else {
+        sum += 6 * i
+        count += 1
+    }
 }
-
-print(x*x)
