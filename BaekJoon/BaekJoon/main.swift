@@ -1,11 +1,11 @@
-let t = Int(readLine()!)!
+import Foundation
+var n = Int(readLine()!)!
 
-for i in 0..<t {
-    let c = Int(readLine()!)!
-    
-    let q = c / 25
-    let d = (c - (q * 25)) / 10
-    let n = (c - (q * 25)-(d * 10)) / 5
-    let p = (c - (q * 25)-(d * 10)-(n * 5)) / 1
-    print("\(q) \(d) \(n) \(p)")
+var x = 2
+
+while n > 0 {
+    x += Int(pow(2, Double(n-1)))
+    n -= 1
 }
+
+print(x*x)
